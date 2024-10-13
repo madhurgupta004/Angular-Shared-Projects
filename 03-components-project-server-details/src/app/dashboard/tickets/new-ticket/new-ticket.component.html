@@ -1,0 +1,52 @@
+<!-- Without 2 way binding
+  <form (ngSubmit)="onSubmit(titleInput.value, textInput.value)" #form>
+    <app-control label="Title">
+      <input type="text" name="title" id="title" #titleInput #input />
+  </app-control>
+  <app-control label="Request">
+    <textarea name="request" id="request" rows="3" #textInput #input></textarea>
+  </app-control>
+  <p>
+    <button appButton>
+      Submit
+      <span ngProjectAs="icon">⌲</span>
+    </button>
+  </p>
+</form>
+-->
+
+<!-- With 2 way binding -->
+<form (ngSubmit)="onSubmit()" #form>
+  <app-control label="Title">
+    <input
+      type="text"
+      name="title"
+      id="title"
+      #input
+      [(ngModel)]="enteredTitle"
+    />
+  </app-control>
+  <app-control label="Request">
+    <textarea
+      name="request"
+      id="request"
+      rows="3"
+      #input
+      [(ngModel)]="enteredText"
+    ></textarea>
+  </app-control>
+  <p>
+    <button appButton>
+      Submit
+      <span ngProjectAs="icon">⌲</span>
+    </button>
+  </p>
+</form>
+
+<!--
+#titleInput: angular specific feature -> creates a template variable
+             which stores value of that element in which it is used.
+      By default we get access to dom element, but if we create
+      template variable on our custom angular component, it will
+      create a variable of that component and not a DOM template variable.
+-->

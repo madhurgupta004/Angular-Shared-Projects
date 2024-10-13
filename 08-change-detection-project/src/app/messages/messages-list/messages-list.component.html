@@ -1,0 +1,16 @@
+<ul>
+  @for (message of messages(); track message) {
+  <li>{{ message }}</li>
+  }
+</ul>
+
+<p class="debug-output">{{ debugOutput }}</p>
+
+<!-- @for (message of messages$ | async; track message) { -->
+<!--
+  async: built-in pipe to be used in conjunction with observables
+  Angular sets up a subscription behind the scenes,
+  read the emitted values by the subject, and provide them into the template.
+  Unsubscribe when component gets destroyed.
+  also triggers change detection, for this component, whenever new values gets received
+  -->

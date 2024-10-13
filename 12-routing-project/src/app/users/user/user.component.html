@@ -1,0 +1,11 @@
+<div>
+  <!-- <a href="/tasks"> -->
+  <a [routerLink]="['/users', user().id, 'tasks']" routerLinkActive="selected">
+    <img [src]="imagePath()" [alt]="user().name" />
+    <span>{{ user().name }}</span>
+  </a>
+</div>
+
+<!-- href reloads complete page on each click -->
+<!-- routerLink load the required component only -->
+<!-- routerLinkActive links the css class to currently active route -->

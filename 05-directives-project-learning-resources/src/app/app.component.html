@@ -1,0 +1,37 @@
+<main>
+  <app-learning-resources />
+
+  <hr />
+
+  <app-auth />
+
+  <!-- Can only be used after angular 17
+  @if (isAdmin()) {
+  <p>Only admin should see this!</p>
+  } -->
+
+  <!--
+    <p *ngIf="isAdmin()">Only admin should see this!</p>
+    SAME AS
+    <ng-element ngIf="isAdmin()">
+      <p >Only admin should see this!</p>
+    </ng-element>
+  -->
+
+  <!-- ng-template is used to wrap content which we don't want to on screen initially,
+   We can control when this should be shown on screen -->
+
+  <!-- <ng-template appAuth="admin">
+    <p>Only admin should see this!</p>
+  </ng-template> -->
+
+  <p *appAuth="'admin'" class="protected-content admin">
+    Only admin should see this!
+  </p>
+  <p *appAuth="'user'" class="protected-content unauthenticated">
+    Regular users should see this!
+  </p>
+  <p *appAuth="'guest'" class="protected-content authenticated">
+    Guest users should see this!
+  </p>
+</main>

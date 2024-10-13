@@ -1,0 +1,24 @@
+<div>
+  <ul>
+    @for (ticket of tickets; track ticket.id) {
+    <li>
+      <app-ticket [data]="ticket" (close)="onCloseTicket(ticket.id)" />
+      <!-- - {{ $count }} -->
+    </li>
+    } @empty {
+    <p>No tickets available</p>
+    }
+  </ul>
+</div>
+
+<div id="new-ticket">
+  <app-new-ticket (add)="onAdd($event)" />
+</div>
+
+<!--
+$first : true for first element, false for rest
+$last : true for last element, false for rest
+$even : true for even indices
+$odd : true for odd indices
+$count: counts length of array
+-->
